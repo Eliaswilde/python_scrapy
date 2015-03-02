@@ -1,0 +1,27 @@
+
+<html>
+<head>
+    <title>scrapping</title>
+</head>
+<body>
+<form action="" method="post" class="inputForm" name="freightForm" onsubmit="return validateForm();" >
+	{% csrf_token %}
+	<label class="label_input">Insert CSV file</label>
+	<input class="inputclass" name="insertCsv" id="insertCsv" value="{{insertCsv}}" onkeypress='validateZip(event)' /></br>
+	<label class="label_input">Out CSV file 1:</label>
+	<input class="inputclass" name="outCsv1" id="outCsv1" value="{{outCsv1}}" onkeypress='validateNumber(event)' /></br>
+	<label class="label_input">Out CSV file 2:</label>
+	<input class="inputclass" name="outCsv2" id="outCsv2" value="{{outCsv2}}" onkeypress='validateDate(event)'/></br>
+    <label class="label_input">Download Path:</label>
+	<input class="inputclass" name="downPath" id="downPath" value="{{downPath}}" onkeypress='validateDate(event)'/>
+	<div class="button_container">
+	<input type="submit" class="button" value="Result" title="Search the selected supplier." onclick="message('Working... Please wait a minute.')"/>
+	</div>
+</form>
+
+
+<div class="resultTable">
+	{{ results|safe }}
+</div>
+</body>
+</html>
